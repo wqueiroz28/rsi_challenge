@@ -1,4 +1,4 @@
-package br.com.challengersi.rsi.model;
+package br.com.challengersi.rsi.models;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +10,6 @@ import javax.persistence.Id;
 @Setter
 @Entity
 public class TransferModel {
-
     @Id
     private int id;
     private int contaDestino;

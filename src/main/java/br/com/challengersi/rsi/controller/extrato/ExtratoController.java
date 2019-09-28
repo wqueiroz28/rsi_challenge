@@ -1,21 +1,22 @@
 package br.com.challengersi.rsi.controller.extrato;
 
-import br.com.challengersi.rsi.model.Extrato;
+import br.com.challengersi.rsi.models.Extrato;
+import br.com.challengersi.rsi.repository.AccountRepository;
+import br.com.challengersi.rsi.repository.ExtratoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ExtratoController {
 
+    @Autowired
+    private ExtratoRepository repository;
+
+
     @GetMapping("/pegarExtrato")
     @ResponseBody
     public Extrato pegarExtrato(Extrato extrato){
-        return extrato;
-    }
-
-    @PostMapping("/EnviarExtrato")
-    @ResponseBody
-    public String pegarExtrato(int conta, String data, String descricao, double valor){
-        return "Extrato salvo con sucesso";
+        return repository.save(extrato);
     }
 
     @DeleteMapping("/excluirExtrato")

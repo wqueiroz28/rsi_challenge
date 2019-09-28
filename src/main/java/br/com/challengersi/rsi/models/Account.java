@@ -9,48 +9,36 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Table(name = "T_CONTA")
+@Entity
 public class Account {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
-    private Long id;
-
-    @Column(name = "saldo", length = 150)
+    private int id;
     private double saldo;
-
-    @Column(name = "numero",nullable = false, length = 150)
     private int numero;
 
-    @Column(name = "usuario", nullable = false, length = 150)
-    private User usuario;
-
-    public void deposit(double value){
-
-        saldo += value;
-
+    public int getId() {
+        return id;
     }
 
-    public boolean withdraw (double value){
-        if (this.saldo >= value) {
-            this.saldo -= value;
-            return true;
-        }else {
-            return false;
-        }
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public boolean transfer (double value, Account accountDestiny) {
+    public double getSaldo() {
+        return saldo;
+    }
 
-        if (this.withdraw(value)) {
-            accountDestiny.deposit(value);
-            return true;
-        }
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
 
-        return false;
+    public int getNumero() {
+        return numero;
+    }
 
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
 }
