@@ -1,7 +1,6 @@
-package br.com.challengersi.rsi.controller.conta;
+package br.com.challengersi.rsi.controller.extrato;
 
 import br.com.challengersi.rsi.model.Extrato;
-import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
